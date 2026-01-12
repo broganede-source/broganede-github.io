@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customize 8"x10" Board</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: Arial; text-align:center; background:#f4f4f4; margin:0; padding:0; }
+    header { background:#2c3e50; color:white; padding:20px; }
+    nav { background:#34495e; display:flex; justify-content:center; }
+    nav a { color:white; padding:15px 25px; text-decoration:none; display:block; }
+    nav a:hover { background:#1abc9c; }
+    #board-canvas { border:2px solid #333; margin-top:20px; }
+    .controls { margin-top:20px; }
+    .button { background:#3498db; color:white; padding:10px 20px; border:none; border-radius:5px; cursor:pointer; }
+    .button:hover { background:#2980b9; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Customize Your 8"x10" Board</h1>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="memorial-boards.html">Memorial Boards</a>
+</nav>
+
+<main>
+  <div class="controls">
+    <input type="file" id="imageUpload" accept="image/*">
+    <button class="button" id="doneBtn">Done</button>
+  </div>
+
+  <canvas id="board-canvas" width="480" height="600"></canvas>
+</main>
+
+<script>
+const canvas = new fabric.Canvas('board-canvas');
+
+// Board background (replace with your wood image)
+fabric.Image.fromURL('wood-board.jpg', function(img){
+  img.set({ selectable:false, width: canvas.width, height: canvas.height });
+  canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas));
+});
+
+// Upload images
+document.getElementById('imageUpload').addEventListener('change', function(e){
+  const file = e.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = function(f){
+    fabric.Image.fromURL(f.target.result, function(img){
+      img.set({ left: 50, top: 50, scaleX:0.5, scaleY:0.5 });
+      canvas.add(img);
+      canvas.setActiveObject(img);
+    });
+  };
+  reader.readAsDataURL(file);
+});
+
+// Done button - preview for now
+document.getElementById('doneBtn').addEventListener('click', function(){
+  const dataURL = canvas.toDataURL({format:'png'});
+  window.open(dataURL);
+  alert("Your design is ready! (Email backend will send it to us.)");
+});
+</script>
+
+</body>
+</html>
+ 
