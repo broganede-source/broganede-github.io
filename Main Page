@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Company Name</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* General styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background-color: #2c3e50;
+      color: #fff;
+      padding: 40px 20px 20px 20px;
+      text-align: center;
+    }
+
+    header img {
+      max-width: 120px;
+      display: block;
+      margin: 0 auto 10px;
+    }
+
+    nav {
+      background-color: #34495e;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav a {
+      color: #fff;
+      padding: 15px 25px;
+      text-decoration: none;
+      display: block;
+    }
+
+    nav a:hover {
+      background-color: #1abc9c;
+    }
+
+    main {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .button-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 15px 25px;
+      background-color: #3498db;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 18px;
+    }
+
+    .button-link:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <img src="logo.png" alt="Company Logo">
+    <h1>Your Company Name</h1>
+    <p>We create beautiful, custom memorial boards to honor your loved ones.</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="memorial-boards.html">Memorial Boards</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <h2>Welcome to Our Memorial Board Service</h2>
+    <p>Create a custom memorial board for your loved ones easily online.</p>
+    <a href="memorial-boards.html" class="button-link">Go to Memorial Boards</a>
+  </main>
+
+</body>
+</html>
